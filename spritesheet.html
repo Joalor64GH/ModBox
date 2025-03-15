@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spritesheet Creator</title>
+    <link rel="stylesheet" href="spritesheet.css" />
+  </head>
+  <body>
+    <div id="blur"></div>
+    <div id="upper">
+      <h1 id="header">Crear Spritesheet</h1>
+      <div id="body-input-div" class="flex">
+        <label>Upload Bodies:</label>
+        <input type="file" id="bodyInput" accept="image/*" multiple />
+      </div>
+      <div id="head-input-div" class="flex">
+        <label>Upload Heads:</label>
+        <input type="file" id="headInput" accept="image/*" multiple />
+      </div>
+      <p id="note">
+        NOTE: *First Import at least one of each body and head to genearte
+      </p>
+      <button onclick="createSpritesheet()" id="generate-bt">Generate</button>
+      <a id="downloadLink" download="spritesheet.png"
+        ><button id="downloadLink-bt">Download</button></a
+      >
+    </div>
+    <div id="sheet">
+      <canvas id="spriteCanvas"></canvas>
+    </div>
+    <script src="spritesheet.js"></script>
+  </body>
+</html>

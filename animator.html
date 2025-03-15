@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <!-- <meta name="viewport" content="viewport-fit=cover"> -->
+    <link rel="icon" type="image/png" href="icn.png">
+    <link rel="stylesheet" href="main.css">
+    <title>Incredibox Animation Tool</title>
+</head>
+<body>
+    <div id="wrap">
+        <!-- THE UPPER BUTTONS -->
+        <div id="upper" class="margin">
+            <div id="que">
+                <div id="upper-buttons">
+                    <div id="fileDiv" class="margin">
+                        <button id="file">import</button>
+                    </div>
+                    <div id="saveDiv" style="display: none;">
+                        <button id="SaveButton"><div id="save-icn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50"><path d="M2 2h60v60H2z" fill="#ccc"/><path d="M16 8h32v16H16z" fill="#fff"/><path d="M16 32h32v24H16z" fill="#000"/><circle cx="32" cy="44" r="6" fill="#fff"/></svg></div></button>
+                        <p class="tip">Save progress</p>
+                    </div>
+                    <input type="text" id="name" value="" placeholder="name">
+                    <button id="info">...</button>
+                    <button id="homeButton" style="display: none;"><div class="icn"><svg class="icn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 3L2 30h8v31h16V41h12v20h16V30h8L32 3z" /><path d="M22 33h20v4H22z"/></div></button>
+                    <div id="download-bt" class="flex">
+                        <button id="download">Download JSON</button>
+                        <p id="downloaded">JSON downloaded!</p>
+                    </div>
+                </div>
+            </div>
+            <div id="upper-cover"></div>
+        </div>
+        <div id="app">
+                <div id="character">
+                    <div id="head"></div>
+                    <div id="body"></div>
+                </div>
+            <div id="preview">
+                <div id="minimap"></div>
+            </div>
+            <div id="box"></div>
+            <!-- EDITING  -->        
+            <div id="edit">
+                <button id="prevhead" class="bt">prev head</button>
+                <button id="nexthead" class="bt">next head</button>
+                <button id="add-head">add frame</button>
+                <button id="rem-head">delete frame</button>
+                <hr class="margin">
+                <div id="heads" class="flex">
+                    <div id="headspline" style="display: none;">
+                        <p class="margin">heads per row:</p>
+                        <input class="margin" type="number" id="headspl" value="0">
+                    </div>
+                    <div id="x" class="flex" style="display: none;">
+                        <p class="margin">x:</p>
+                        <input class="margin" type="number" id="xpos" value="0">
+                    </div>
+                    <div id="y" class="flex" style="display: none;">
+                        <p class="margin">y:</p>
+                        <input class="margin" type="number" id="ypos" value="0">
+                    </div>
+                    <p>move:</p>
+                    <button id="head-down" class="move-head">down</button>
+                    <button id="head-up" class="move-head">up</button>
+                    <button id="head-right" class="move-head">right</button>
+                    <button id="head-left" class="move-head">left</button>
+                    <div id="height" class="flex">
+                        <p class="margin">head height:</p>
+                        <input class="margin" type="number" id="height-input" value="199">
+                    </div>
+                    <div id="width" class="flex">
+                        <p class="margin">head width:</p>
+                        <input class="margin" type="number" id="width-input" value="164">
+                    </div>
+                </div>
+                <div id="position" style="display: flex;">
+                </div>
+                <hr>
+                <button id="play" class="margin">play</button>
+                <button id="prev-prop">prev frame</button>
+                <button id="next-prop">next frame</button>
+                <button id="trackBt">audio Track</button>
+                <p id="propsCounter">prop 0/0</p>
+                <div id="blur"></div>
+                <dialog id="errorDialog">
+                    <p id="errorText" class="error">error</p>
+                    <button id="closeerrorbt"class="error">close</button>
+                </dialog>
+                <dialog id="infoDialog">
+                    <h1>More Settings</h1>
+                    <h3>hotkeys</h3>
+                    <p id="info-text">W -> move head up 
+                        <br> S -> move head down 
+                        <br> A -> move head to the left 
+                        <br> D -> move head to the right 
+                        <br> Right Arrow -> next head 
+                        <br> Left Arrow -> previous head 
+                        <br> N -> new prop 
+                        <br> R -> remove prop 
+                        <br> P -> play<hr>
+                        <p id="version">animbox 1.0 realase</p>
+                    </p>
+
+                    <h3>Settings</h3>
+                    <div id="drag-and-add-chk" style="display: flex;">
+                        <input id="drag-and-add-input" type="checkbox">
+                        <p>Drag n' add</p>
+                    </div>
+                    <div id="darkmode-chk" style="display: flex;">
+                        <input id="darkmode-input" type="checkbox">
+                        <p>dark mode</p>
+                    </div>
+                </dialog>
+                <dialog id="import-dialog">
+                    <h1>Import SpriteSheet</h1>
+                    <input type="file" id="import" class="margin" accept=".jpg, .png, .webp, .jfif, .avif">
+                    <div id="IMAGE-PREVIEW">
+                        <div id="image"></div>
+                    </div>
+                    <p id="warning-import"></p>
+                    <button class="margin" id="import-button">Load Sprite</button>
+                </dialog>
+                <div id="audioTrack">
+                    <hr>
+                    <div id="progress-line"></div>
+                    <input type="file" id="audioInput" accept=".mp3, .ogg, .wav, .ma4, .weba">
+                    <canvas id="canvas"></canvas>
+                    <audio id="track"></audio>
+                    <button id="playAudio" class="play"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50"><polygon points="30,20 80,50 30,80" fill="black" /></svg></button>
+                </div>
+        </div>
+    </div>
+    <script type="module" src="animate.js"></script>
+</body>
+</html>

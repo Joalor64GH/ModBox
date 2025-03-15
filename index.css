@@ -1,0 +1,119 @@
+#logo {
+  scale: 1.9;
+  translate: 0px 0px;
+  transition: all 0.7s cubic-bezier(0.85, 0, 0.25, 1);
+}
+#fullscreen-txt {
+  opacity: 0;
+  transition: all 0.7s cubic-bezier(0.85, 0, 0.25, 1);
+}
+#icons {
+  display: flex;
+  position: absolute;
+  transform: translate(0px, 0px);
+}
+#animator {
+  opacity: 0;
+  transform: translate(0px, 80px);
+  transition: transform, opacity, 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+#app-js {
+  opacity: 0;
+  transform: translate(0px, 80px);
+  transition: transform, opacity, 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+#SpriteSheet {
+  opacity: 0;
+  transform: translate(0px, 80px);
+  transition: transform, opacity, 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+#blur {
+  position: absolute;
+  transform: translate(0px, 0px);
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  background-color: black;
+  transition: opacity 0.5s ease;
+  visibility: hidden;
+}
+#blur.visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+#animator-icn {
+  scale: 1;
+}
+#animator-icn:hover {
+  scale: 1.055;
+}
+#js-icn:hover {
+  scale: 1.05;
+}
+#js-icn {
+  scale: 1;
+}
+#spritesheet-icn {
+  scale: 1 0.8;
+  margin-bottom: 6px;
+  transform: translate(0px, -35px);
+}
+#spritesheet-icn:hover {
+  scale: 1.05 0.85;
+}
+#spritesheet-txt {
+  transform: translate(0px, -55px) !important;
+}
+.icn {
+  background-color: gray;
+  padding: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 15px;
+  transform: scale(1.4);
+  transition: scale 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.icn:hover {
+  transition: none;
+}
+.icn-txt {
+  text-align: center;
+}
+.select:hover {
+  cursor: pointer;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url(fonts/Raleway-Regular.ttf);
+}
+body {
+  translate: 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scale: 0.9;
+  margin: 0;
+  background-color: #f0f0f0;
+  font-family: "Raleway";
+  user-select: none;
+  overflow: hidden;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
